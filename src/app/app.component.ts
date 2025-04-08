@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   @ViewChild('moveContainer') moveContainer!: ElementRef;
 
   loader: boolean = true;
-  enter: boolean = false;
+  enter: boolean = true;
   simpleView: boolean = true;
 
   constructor() {}

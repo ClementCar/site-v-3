@@ -1,0 +1,328 @@
+@import "src/style/mixin";
+
+ion-header{
+    height: 70px;
+    align-items: center;
+    & img {
+        max-height: 100%;
+    }
+}
+
+section{
+    height: calc(100% - 70px);
+    overflow-y: auto;
+}
+
+ion-row{
+    height: auto;
+    @include media-desktop{
+        height: 50%;
+        max-height: 50%;
+    }
+}
+
+ion-col{
+    position: relative;
+    padding: 20px;
+    max-height: 100%;
+    & .bottom{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: calc(100% - 10px);
+    }
+    & .left{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: calc(100% - 10px);
+        width: 100%;
+    }
+}
+
+.c-project{
+    padding-top: 0;
+    padding-bottom: 50px;
+    @include media-desktop{
+        padding: 20px;
+    }
+    & .col-container{
+        height: calc(100% + 60px);
+        @include media-desktop{
+            height: 100%;
+        }
+    }
+}
+
+.presentation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100% !important;
+    @include media-desktop{
+        width: 80%;
+    }
+}
+
+.col-container{
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
+    & ul {
+        list-style: none;
+        padding: 0;
+        height: 80%;
+        & li{
+            display: flex;
+            align-items: center;
+            min-height: 12.5%;
+            p {
+                margin: 0;
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+.custom-list{
+    height: 100%;
+    min-height: 200px;
+    & ion-item {
+        --background: transparent;
+        --border-radius: 10px;
+        --inner-padding-start: 0;
+        --inner-padding-end: 0;
+        min-height: 20% !important;
+        & p {
+            margin: 0;
+            font-size: 16px;
+            margin-left: 7px;
+        }
+    }
+    ion-item::part(native){
+        padding: 0;
+        padding-left: 7px;
+    }
+}
+
+.project-col{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 20%;
+    width: 100%;
+}
+
+h3{
+    margin: 0;
+    font-weight: bold;
+}
+
+
+// Desktop view
+.desktop{
+    position: relative;
+    width: 75%;
+    height: max-content;
+    margin-bottom: 60px;
+    &__screen {
+        position: relative;
+        width: 94%;
+        height: 100%;
+        border-radius: 5px;
+        margin: 2%;
+        z-index: 2;
+    }
+    &__computer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; /* Taille ajustable */
+        height: 100%; /* Taille ajustable */
+        background: linear-gradient(180deg, #d1d1d1, #b0b0b0);
+        border-radius: 10px 10px 0 0;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        &__stand {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(180deg, #c4c4c4, #a1a1a1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 10px 10px;
+        }
+        &__base {
+            position: absolute;
+            bottom: -62px;
+            left: 50%;
+            transform: translateX(-50%);
+            width:42px;
+            height: 40px;
+            background: #a1a1a1;
+            border-radius: 4px;
+            z-index: -1;
+        }
+    }
+}
+
+
+// Phone view
+.phone{
+    position: relative;
+    display: flex;
+    align-self: flex-end;
+    width: 20%;
+    transform: translateX(-35px);
+    -webkit-transform: translateX(-35px);
+    z-index: 3;
+    &__video {
+        position: relative;
+        width: 94%;
+        height: 88%;
+        border-radius: 10px;
+        margin: 3% 2%;
+        z-index: 2;
+    }
+    &__case {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; /* Taille ajustable */
+        height: 100%; /* Taille ajustable */
+        background: linear-gradient(180deg, #d1d1d1, #b0b0b0);
+        border-radius: 10px 10px 0 0;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        z-index: 1;
+        &__buttons{
+            position: absolute;
+            right: -2px;
+            top: 0;
+            height: 100%;
+            padding-top: 40%;
+            & div{
+                background: linear-gradient(180deg, #c4c4c4, #a1a1a1);
+                border-radius: 5px;
+            }
+            &__volume{
+                height: 15%;
+                width: 3px;
+            }
+            &__power{
+                height: 7%;
+                width: 3px;
+                margin-top: 16px;
+            }
+        }
+    }
+    &__camera {
+        position: absolute;
+        top: 2%;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        width: 6px;
+        height: 6px;
+        background: black;
+        border-radius: 50%;
+        z-index: 2;
+    }
+}
+
+
+
+.border-bottom{
+    border-bottom: 1px solid var(--ion-color-medium);
+}
+
+.border-left{
+    border-left: 1px solid var(--ion-color-medium);
+}
+
+.border-right{
+    border-right: 1px solid var(--ion-color-medium);
+}
+
+.border-top-right{
+    border-right: 1px solid var(--ion-color-medium);
+    border-top: 1px solid var(--ion-color-medium);
+    border-radius: 0 30px 0 0;
+}
+
+.border-top-left{
+    border-top: 1px solid var(--ion-color-medium);
+    border-left: 1px solid var(--ion-color-medium);
+    border-radius: 30px 0 0 0;
+}
+
+.img-container__boxphone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.phone-screen {
+    position: absolute;
+    top: 6%;
+    left: 5%;
+    width: 90%;
+    height: 88%;
+    background: #000;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.phone-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 30px;
+    background: #333;
+    border-radius: 0 0 20px 20px;
+}
+
+.camera {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background: #111;
+    border-radius: 50%;
+}
+
+.button {
+    position: absolute;
+    width: 4px;
+    height: 30px;
+    background: #333;
+    border-radius: 2px;
+}
+
+.button.top {
+    left: -6px;
+    top: 60px;
+}
+
+.button.middle {
+    left: -6px;
+    top: 100px;
+}
+
+.button.bottom {
+    left: -6px;
+    top: 140px;
+}

@@ -1,0 +1,112 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+@import "src/style/class";
+@import "src/style/default";
+@import "src/style/mixin";
+@import "src/style/keyframes";
+
+// * Roboto
+// font-family: "Roboto Slab", serif;
+//   font-optical-sizing: auto;
+//   font-weight: <weight>;
+//   font-style: normal;
+
+// * Raleway
+// font-family: "Raleway", sans-serif;
+//   font-optical-sizing: auto;
+//   font-weight: <weight>;
+//   font-style: normal;
+
+// * Concert One
+// font-family: "Concert One", sans-serif;
+//   font-weight: 400;
+//   font-style: normal;
+
+// .bodoni-moda-<uniquifier> {
+//     font-family: "Bodoni Moda", serif;
+//     font-optical-sizing: auto;
+//     font-weight: <weight>;
+//     font-style: normal;
+//   }
+
+body{
+    color: var(--ion-color-white) !important;
+    // background: radial-gradient(circle at center, hsla(0,0%,20%,1), hsla(0,0%,10%,1), hsla(0,0%,0%,1)) !important;
+    background: radial-gradient(circle at top left, hsla(0,0%,20%,1), hsla(0,0%,10%,1), hsla(0,0%,0%,1));
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body.bg-animated{
+    animation: bg-light .6s ease forwards !important;
+    // background: radial-gradient(circle at bottom right, hsla(0,0%,20%,1), hsla(0,0%,10%,1), hsla(0,0%,0%,1)) !important;
+    // transition: all .6s ease;
+
+}
+
+// body {
+//   color: var(--ion-color-white) !important;
+//   background: radial-gradient(circle at top left, hsla(0,0%,20%,1), hsla(0,0%,10%,1), hsla(0,0%,0%,1)) !important;
+//   background-repeat: no-repeat;
+//   background-size: 150% 150% !important;
+//   background-position: top left;
+//   font-family: "Raleway", sans-serif;
+//   transition: background-position 1s ease !important;
+// }
+
+// body.bg-animated {
+//   background-position: bottom right !important;
+// }
+
+p{
+    font-size: 12px;
+    color: var(--ion-color-medium) !important;
+    @include media-desktop-plus{
+        font-size: 16px;
+    }
+}
+
+h1{
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}

@@ -1,0 +1,32 @@
+<ion-app>
+
+  <!-- Loader -->
+  <div class="loader-container flex-center" *ngIf="loader" @inOutOpac>
+    <div class="loader"></div>
+  </div>
+
+  <!-- Home Container -->
+  <div class="w-100 h-100 flex-column-center" *ngIf="!enter">
+    <!-- <h1>Clément Carcenac</h1> -->
+     <div style="padding: 15%;" #moveContainer>
+        <h1 class="shadow-dance-text">Bonjour</h1>
+     </div>
+     <ion-button (click)="onEnter()" expand="block" shape="round" style="z-index: 1; position: relative;">
+        <div class="button"></div>
+      Découvrir
+     </ion-button>
+  </div>
+
+  <!-- app -->
+  <ng-container *ngIf="!simpleView">
+    <div *ngIf="!loader && enter" @inOutOpac>
+      <ion-router-outlet></ion-router-outlet>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="simpleView">
+    <div *ngIf="!loader && enter" class="w-100 h-100">
+      <app-waiting-view class="w-100 h-100"></app-waiting-view>
+    </div>
+  </ng-container>
+</ion-app>

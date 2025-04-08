@@ -1,0 +1,8 @@
+@keyframes bg-light {
+  from {
+    background: radial-gradient(circle at top left, hsla(0, 0%, 20%, 1), hsla(0, 0%, 10%, 1), hsla(0, 0%, 0%, 1));
+  }
+  to {
+    background: radial-gradient(circle at bottom right, hsla(0, 0%, 20%, 1), hsla(0, 0%, 10%, 1), hsla(0, 0%, 0%, 1)); 
+  }
+}

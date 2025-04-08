@@ -1,0 +1,109 @@
+<!-- <ion-content [fullscreen]="true">
+  <section class="w-100 h-100">
+    <p>test</p>
+  </section>
+</ion-content> -->
+
+<ion-header class="flex">
+  <img src="../../../assets/images/logo white.svg" alt="">
+  <h1 class="ion-no-margin">Clément Carcenac</h1>
+</ion-header>
+
+<section class="w-100 ion-padding">
+
+  <ion-row>
+
+    <ion-col size="12" sizeMd="9">
+      <div class="presentation col-container">
+        <h2 class><strong>Je suis développeur Front-end / Angular</strong></h2>
+        <p>
+          Passionné par le développement web et spécialisé dans les technologies front-end, je suis Clément Carcenac, 
+          développeur avec une expertise en Angular. Mon objectif ? Créer des interfaces utilisateur modernes, performantes et intuitives.
+          Toujours à l'affût des nouvelles tendances et bonnes pratiques, j'accorde une grande importance à l'optimisation et à la qualité du code. 
+          J'aime transformer des idées en expériences interactives et immersives, en mettant un point d'honneur à l'expérience utilisateur.
+        </p>
+      </div>
+      <div class="bottom border-bottom"></div>
+    </ion-col>
+
+    <ion-col size="12" sizeMd="3">
+      <div class="col-container">
+        <h3>Compétences</h3>
+        <ul>
+          <li *ngFor="let item of allSkills">
+            <ion-icon *ngIf="item.ionic" slot="icon-only" [name]="item.icon[0]" [style]="'color: ' + item.color"></ion-icon>
+            <i *ngIf="!item.ionic" [class]="item.icon[0]" [style]="'color: ' + item.color" ></i>
+            <p>{{item.name}}</p>
+          </li>
+        </ul>
+      </div>
+      <div class="left border-left"></div>
+    </ion-col>
+
+  </ion-row>
+
+
+
+  <ion-row>
+
+    <ion-col size="12" sizeMd="3">
+      <div class="project-col border-top-right"></div>
+      <div class="col-container">
+        <h3>Dernière réalisation</h3>
+        <p>Développement d'une application web dans le domaine immobilier.
+          Conception et réalisation d'une application interactive, construite avec Angular et Ionic, 
+          permettant aux utilisateurs d'obtenir une évaluation détaillée de leur environnement 
+          (sécurité, qualité de vie, etc.) à partir d'une adresse.</p>
+      </div>
+    </ion-col>
+
+    <ion-col size="12" sizeMd="6" class="c-project">
+      <div class="col-container flex">
+        <div class="desktop flex-center">
+          <video class="desktop__screen" src="../../../assets/video/desktop.mp4" autoplay muted loop></video>
+          <div class="desktop__computer">
+            <div class="desktop__computer__stand"></div>
+            <div class="desktop__computer__base"></div>
+          </div>
+        </div>
+
+        <div class="phone flex-center">
+          <video class="phone__video" src="../../../assets/video/phone.mp4" autoplay muted loop></video>
+          <div class="phone__case">
+            <div class="phone__case__buttons">
+              <div class="phone__case__buttons__volume"></div>
+              <div class="phone__case__buttons__power"></div>
+            </div>
+          </div>
+          <div class="phone__camera"></div>
+        </div>
+      </div>
+    </ion-col>
+
+    <ion-col class="border-top-left" size="12" sizeMd="3">
+      <div class="col-container">
+        <h3>Contact</h3>
+        <div class="custom-list flex-column ion-justify-content-center">
+          <ion-item lines="none" href="tel:0636671813" button>
+            <ion-icon name="call-sharp"></ion-icon>
+            <p>06.36.67.18.13</p>
+          </ion-item>
+          <ion-item lines="none" href="mailto:clementcarcenac@gmail.com" button>
+            <ion-icon name="mail"></ion-icon>
+            <p>{{'clementcarcenac@gmail.com'}}</p>
+          </ion-item>
+          <ion-item lines="none" href="https://github.com/ClementCar" target="_blank" rel="noopener noreferrer" button>
+            <ion-icon name="logo-github"></ion-icon>
+            <p>ClementCar</p>
+          </ion-item>
+          <ion-item lines="none" href="https://www.linkedin.com/in/clement-carcenac-4a61a11b0" target="_blank" rel="noopener noreferrer" button>
+            <ion-icon name="logo-linkedin"></ion-icon>
+            <p>Clément Carcenac</p>
+          </ion-item>
+        </div>
+      </div>
+    </ion-col>
+
+  </ion-row>
+
+</section>

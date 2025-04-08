@@ -1,0 +1,15 @@
+section{
+    overflow: hidden;
+}
+
+.image-container{
+    background: var(--ion-color-background-contrast);
+    height: 85%;
+    border-radius: 0 100px 0 0;
+    overflow: hidden;
+}
+
+ion-item{
+    border-radius: 10px;
+    width: 100%;
+}

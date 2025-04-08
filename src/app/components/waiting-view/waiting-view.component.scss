@@ -6,6 +6,9 @@ ion-header{
     & img {
         max-height: 100%;
     }
+    @include media-desktop{
+        box-shadow: none;
+    }
 }
 
 section{
@@ -104,6 +107,9 @@ ion-button{
             margin: 0;
             font-size: 16px;
             margin-left: 7px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-wrap-mode: nowrap;
         }
     }
     ion-item::part(native){
@@ -147,7 +153,7 @@ h3{
         left: 0;
         width: 100%; /* Taille ajustable */
         height: 100%; /* Taille ajustable */
-        background: linear-gradient(180deg, #d1d1d1, #b0b0b0);
+        background: linear-gradient(180deg, #5a5a5a, #3a3a3a);
         border-radius: 10px 10px 0 0;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         z-index: 1;
@@ -200,7 +206,7 @@ h3{
         left: 0;
         width: 100%; /* Taille ajustable */
         height: 100%; /* Taille ajustable */
-        background: linear-gradient(180deg, #d1d1d1, #b0b0b0);
+        background: linear-gradient(180deg, #5a5a5a, #3a3a3a);
         border-radius: 10px 10px 0 0;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         border-radius: 10px;
@@ -212,7 +218,8 @@ h3{
             height: 100%;
             padding-top: 40%;
             & div{
-                background: linear-gradient(180deg, #c4c4c4, #a1a1a1);
+                background: linear-gradient(180deg, #5a5a5a, #3a3a3a);
+
                 border-radius: 5px;
             }
             &__volume{

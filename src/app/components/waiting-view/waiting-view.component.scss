@@ -1,4 +1,4 @@
-@import "src/style/mixin";
+@use "src/style/mixin" as mixin;
 
 ion-header{
     height: 70px;
@@ -6,7 +6,7 @@ ion-header{
     & img {
         max-height: 100%;
     }
-    @include media-desktop{
+    @include mixin.media-desktop{
         box-shadow: none;
     }
 }
@@ -18,7 +18,7 @@ section{
 
 ion-row{
     height: auto;
-    @include media-desktop{
+    @include mixin.media-desktop{
         height: 50%;
         max-height: 50%;
     }
@@ -53,12 +53,12 @@ ion-button{
 .c-project{
     padding-top: 0;
     padding-bottom: 50px;
-    @include media-desktop{
+    @include mixin.media-desktop{
         padding: 20px;
     }
     & .col-container{
         height: calc(100% + 60px);
-        @include media-desktop{
+        @include mixin.media-desktop{
             height: 100%;
         }
     }
@@ -69,7 +69,7 @@ ion-button{
     flex-direction: column;
     justify-content: center;
     width: 100% !important;
-    @include media-desktop{
+    @include mixin.media-desktop{
         width: 80% !important;
     }
 }
@@ -86,6 +86,7 @@ ion-button{
             display: flex;
             align-items: center;
             min-height: 12.5%;
+            opacity: 0;
             p {
                 margin: 0;
                 margin-left: 10px;
@@ -94,36 +95,16 @@ ion-button{
     }
 }
 
-.custom-list{
-    height: 100%;
-    min-height: 200px;
-    & ion-item {
-        --background: transparent;
-        --border-radius: 10px;
-        --inner-padding-start: 0;
-        --inner-padding-end: 0;
-        min-height: 20% !important;
-        & p {
-            margin: 0;
-            font-size: 16px;
-            margin-left: 7px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            text-wrap-mode: nowrap;
-        }
-    }
-    ion-item::part(native){
-        padding: 0;
-        padding-left: 7px;
-    }
-}
-
 .project-col{
     position: absolute;
     left: 0;
-    top: 0;
+    top: -1px;
     height: 20%;
     width: 100%;
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+}
+.project-col-on{
+    animation: draw-border 1.2s ease forwards;
 }
 
 h3{
@@ -247,7 +228,42 @@ h3{
     }
 }
 
+.contact-border{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+}
 
+.contact-on{
+    animation: draw-border-left 1.5s ease forwards;
+}
+
+.custom-list{
+    height: 100%;
+    min-height: 200px;
+    & ion-item {
+        --background: transparent;
+        --border-radius: 10px;
+        --inner-padding-start: 0;
+        --inner-padding-end: 0;
+        min-height: 20% !important;
+        & p {
+            margin: 0;
+            font-size: 16px;
+            margin-left: 7px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-wrap-mode: nowrap;
+        }
+    }
+    ion-item::part(native){
+        padding: 0;
+        padding-left: 7px;
+    }
+}
 
 .border-bottom{
     border-bottom: 1px solid var(--ion-color-medium);

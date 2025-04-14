@@ -3,12 +3,12 @@ import { animate, style, transition, trigger } from "@angular/animations";
 export const inOutOpac = trigger('inOutOpac', [
     transition(':enter', [
         style({ opacity: 0}),
-        animate('.3s ease', style({ opacity: 1}))
-    ]),
+        animate('.9s {{delay}}ms ease', style({ opacity: 1}))
+    ], { params: { delay: 0}}),
     transition(':leave', [
         style({opacity: 1}),
-        animate('.3s ease', style({ opacity: 0}))
-    ])
+        animate('.9s {{delay}}ms ease', style({ opacity: 0}))
+    ], { params: { delay: 0}})
 ])
 
 export const inBottom = trigger('inBottom', [
@@ -44,19 +44,35 @@ export const inLeftBottom = trigger('inLeftBottom', [
     ])
 ])
 
-// export const inLeftBottom = trigger('inLeftBottom', [
-//     transition(':enter', [
-//         style({ opacity: 0, transform: 'translate(-25%, 25%)' }), // Position plus éloignée pour un meilleur effet
-//         animate(
-//             '.6s cubic-bezier(0.68, -0.55, 0.27, 1.55)', // Courbe plus fluide
-//             style({ opacity: 1, transform: 'translate(0, 0)' })
-//         )
-//     ]),
-//     transition(':leave', [
-//         style({ opacity: 1, transform: 'translate(0, 0)' }),
-//         animate(
-//             '.6s cubic-bezier(0.68, -0.55, 0.27, 1.55)', // Même courbe en sortie
-//             style({ opacity: 0, transform: 'translate(-25%, 25%)' })
-//         )
-//     ])
-// ]);
+export const inHeight = trigger('inHeight', [
+    transition(':enter', [
+        style({ height: 0}),
+        animate('2s ease', style({height: 'calc(100% - 10px)'}))
+    ]),
+    transition(':leave', [
+        style({height: 'calc(100% - 10px)'}),
+        animate('2s ease', style({height: 0}))
+    ])
+])
+
+export const inWidth = trigger('inWidth', [
+    transition(':enter', [
+        style({ width: 0}),
+        animate('2.8s ease', style({width: 'calc(100% - 10px)'}))
+    ]),
+    transition(':leave', [
+        style({width: 'calc(100% - 10px)'}),
+        animate('2.8s ease', style({width: 0}))
+    ])
+])
+
+export const inFull = trigger('inFull', [
+    transition(':enter', [
+        style({ width: 0, height: 0}),
+        animate('.6s ease', style({width: '100%', height: '100%'}))
+    ]),
+    transition(':leave', [
+        style({width: '100%', height: '100%'}),
+        animate('.6s ease', style({width: 0, height: 0}))
+    ])
+])

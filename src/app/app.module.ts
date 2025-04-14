@@ -12,8 +12,17 @@ import { AppComponent } from './app.component';
 import { WaitingViewComponent } from './components/waiting-view/waiting-view.component';
 
 @NgModule({
-  declarations: [AppComponent, WaitingViewComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule ],
+  declarations: [AppComponent, WaitingViewComponent, ],
+  imports: [BrowserModule, 
+    IonicModule.forRoot({
+      platform: {
+        'mobile': (win) => {
+          const isMobile = (win.innerWidth < 768) ? true : false;
+          return isMobile;
+        }
+      }
+    }), 
+    AppRoutingModule, BrowserAnimationsModule ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: LOCALE_ID, useValue: 'fr-FR'}
   ],

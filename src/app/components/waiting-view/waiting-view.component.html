@@ -14,30 +14,30 @@
   <ion-row>
 
     <ion-col size="12" sizeMd="9">
-      <div class="presentation col-container">
-        <h2 class><strong>Je suis développeur Front-end / Angular</strong></h2>
-        <p>
+      <div class="presentation col-container" *ngIf="steps[0]">
+        <h2 @inOutOpac><strong>Je suis développeur Front-end / Angular</strong></h2>
+        <p [@inOutOpac]="{ value: '', params: { delay: 200 }}">
           Passionné par le développement web et spécialisé dans les technologies front-end, je suis Clément Carcenac, 
           développeur avec une expertise en Angular. Mon objectif ? Créer des interfaces utilisateur modernes, performantes et intuitives.
           Toujours à l'affût des nouvelles tendances et bonnes pratiques, j'accorde une grande importance à l'optimisation et à la qualité du code. 
           J'aime transformer des idées en expériences interactives et immersives, en mettant un point d'honneur à l'expérience utilisateur.
         </p>
       </div>
-      <div class="bottom border-bottom"></div>
+      <div class="bottom border-bottom" *ngIf="steps[(platform.is('mobile') ? 1 : 2)]" @inWidth></div>
     </ion-col>
 
     <ion-col size="12" sizeMd="3">
-      <div class="col-container">
+      <div class="col-container" *ngIf="steps[1]" @inOutOpac>
         <h3>Compétences</h3>
         <ul>
-          <li *ngFor="let item of allSkills">
+          <li *ngFor="let item of allSkills; let i = index" [ngStyle]="{'animation' : 'slideOpac 0.8s ease ' + ( (i + 1) * 0.20) + 's forwards'}">
             <ion-icon *ngIf="item.ionic" slot="icon-only" [name]="item.icon[0]" [style]="'color: ' + item.color"></ion-icon>
             <i *ngIf="!item.ionic" [class]="item.icon[0]" [style]="'color: ' + item.color" ></i>
             <p>{{item.name}}</p>
           </li>
         </ul>
       </div>
-      <div class="left border-left"></div>
+      <div class="left border-left" *ngIf="steps[1]" @inHeight></div>
     </ion-col>
 
   </ion-row>
@@ -46,32 +46,32 @@
 
   <ion-row>
 
-    <ion-col size="12" sizeMd="3">
-      <div class="project-col border-top-right"></div>
-      <div class="col-container flex-column-between">
-        <h3>Dernière réalisation</h3>
-        <p>Développement d'une application web dans le domaine immobilier.
+    <ion-col size="12" sizeMd="3" trackVisibility>
+      <div class="project-col border-top-right" [class.project-col-on]="steps[2]"></div>
+      <div class="col-container flex-column-between" *ngIf="steps[2]">
+        <h3 @inOutOpac>Dernière réalisation</h3>
+        <p [@inOutOpac]="{ value: '', params: { delay: 200 }}" >Développement d'une application web dans le domaine immobilier.
           Conception et réalisation d'une application interactive, construite avec Angular et Ionic, 
           permettant aux utilisateurs d'obtenir une évaluation détaillée de leur environnement 
           (sécurité, qualité de vie, etc.) à partir d'une adresse.</p>
-          <ion-button fill="clear" href="https://app.goodplaceto.live/" color="dark" target="_blank" rel="noopener noreferrer">
+          <ion-button fill="clear" href="https://app.goodplaceto.live/" color="dark" target="_blank" rel="noopener noreferrer" [@inOutOpac]="{ value: '', params: { delay: 400 }}">
             Accéder à l'application
           </ion-button>
       </div>
     </ion-col>
 
     <ion-col size="12" sizeMd="6" class="c-project">
-      <div class="col-container flex">
+      <div class="col-container flex" *ngIf="steps[3]" @inOutOpac>
         <div class="desktop flex-center">
-          <video class="desktop__screen" src="../../../assets/video/desktop.mp4" autoplay muted loop></video>
+          <video class="desktop__screen" src="../../../assets/video/desktop.mp4" autoplay muted loop preload></video>
           <div class="desktop__computer">
             <div class="desktop__computer__stand"></div>
             <div class="desktop__computer__base"></div>
           </div>
         </div>
 
-        <div class="phone flex-center">
-          <video class="phone__video" src="../../../assets/video/phone.mp4" autoplay muted loop></video>
+        <div class="phone flex-center" *ngIf="steps[3]" @inOutOpac>
+          <video class="phone__video" src="../../../assets/video/phone.mp4" autoplay muted loop preload></video>
           <div class="phone__case">
             <div class="phone__case__buttons">
               <div class="phone__case__buttons__volume"></div>
@@ -83,10 +83,11 @@
       </div>
     </ion-col>
 
-    <ion-col class="border-top-left" size="12" sizeMd="3">
-      <div class="col-container">
-        <h3>Contact</h3>
-        <div class="custom-list flex-column ion-justify-content-center">
+    <ion-col size="12" sizeMd="3">
+      <div class="contact-border border-top-left" [class.contact-on]="steps[4]"></div>
+      <div class="col-container" *ngIf="steps[4]">
+        <h3 @inOutOpac>Contact</h3>
+        <div class="custom-list flex-column ion-justify-content-center" [@inOutOpac]="{ value: '', params: { delay: 200}}">
           <ion-item lines="none" href="tel:0636671813" button>
             <ion-icon name="call-sharp"></ion-icon>
             <p>06.36.67.18.13</p>

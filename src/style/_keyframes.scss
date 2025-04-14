@@ -6,3 +6,35 @@
     background: radial-gradient(circle at bottom right, hsla(0, 0%, 20%, 1), hsla(0, 0%, 10%, 1), hsla(0, 0%, 0%, 1)); 
   }
 }
+
+@keyframes slideOpac {
+  from{
+      transform: translateY(100%);
+      opacity: 0;
+  }
+  to{
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+@keyframes draw-border {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0); // tout caché
+  }
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); // top visible
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0); // top + right visible
+  }
+}
+
+@keyframes draw-border-left {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0); // caché
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 0 100%, 0 0); 
+  }
+}

@@ -13,8 +13,8 @@
 
   <ion-row>
 
-    <ion-col size="12" sizeMd="9">
-      <div class="presentation col-container" *ngIf="steps[0]">
+    <ion-col size="12" sizeMd="9" #stepBlock>
+      <div class="presentation col-container" *ngIf="steps[0] && revealSteps[0]">
         <h2 @inOutOpac><strong>Je suis développeur Front-end / Angular</strong></h2>
         <p [@inOutOpac]="{ value: '', params: { delay: 200 }}">
           Passionné par le développement web et spécialisé dans les technologies front-end, je suis Clément Carcenac, 
@@ -26,8 +26,8 @@
       <div class="bottom border-bottom" *ngIf="steps[(platform.is('mobile') ? 1 : 2)]" @inWidth></div>
     </ion-col>
 
-    <ion-col size="12" sizeMd="3">
-      <div class="col-container" *ngIf="steps[1]" @inOutOpac>
+    <ion-col size="12" sizeMd="3"  #stepBlock>
+      <div class="col-container" id="skillsBlock" *ngIf="steps[1] && revealSteps[1]" @inOutOpac>
         <h3>Compétences</h3>
         <ul>
           <li *ngFor="let item of allSkills; let i = index" [ngStyle]="{'animation' : 'slideOpac 0.8s ease ' + ( (i + 1) * 0.20) + 's forwards'}">
@@ -37,7 +37,7 @@
           </li>
         </ul>
       </div>
-      <div class="left border-left" *ngIf="steps[1]" @inHeight></div>
+      <div class="left border-left" *ngIf="steps[1] && revealSteps[1]" @inHeight></div>
     </ion-col>
 
   </ion-row>
@@ -46,9 +46,9 @@
 
   <ion-row>
 
-    <ion-col size="12" sizeMd="3" trackVisibility>
-      <div class="project-col border-top-right" [class.project-col-on]="steps[2]"></div>
-      <div class="col-container flex-column-between" *ngIf="steps[2]">
+    <ion-col size="12" sizeMd="3" trackVisibility #stepBlock>
+      <div class="project-col border-top-right" [class.project-col-on]="steps[2] && revealSteps[2]"></div>
+      <div class="col-container flex-column-between" *ngIf="steps[2] && revealSteps[2]">
         <h3 @inOutOpac>Dernière réalisation</h3>
         <p [@inOutOpac]="{ value: '', params: { delay: 200 }}" >Développement d'une application web dans le domaine immobilier.
           Conception et réalisation d'une application interactive, construite avec Angular et Ionic, 
@@ -60,18 +60,18 @@
       </div>
     </ion-col>
 
-    <ion-col size="12" sizeMd="6" class="c-project">
-      <div class="col-container flex" *ngIf="steps[3]" @inOutOpac>
+    <ion-col size="12" sizeMd="6" class="c-project" #stepBlock>
+      <div class="col-container flex" *ngIf="steps[3] && revealSteps[3]" @inOutOpac>
         <div class="desktop flex-center">
-          <video class="desktop__screen" src="../../../assets/video/desktop.mp4" autoplay muted loop preload></video>
+          <video class="desktop__screen" src="../../../assets/video/desktop.mp4" autoplay muted loop playsinline #video1></video>
           <div class="desktop__computer">
             <div class="desktop__computer__stand"></div>
             <div class="desktop__computer__base"></div>
           </div>
         </div>
 
-        <div class="phone flex-center" *ngIf="steps[3]" @inOutOpac>
-          <video class="phone__video" src="../../../assets/video/phone.mp4" autoplay muted loop preload></video>
+        <div class="phone flex-center" *ngIf="steps[3] && revealSteps[3]" @inOutOpac>
+          <video class="phone__video" src="../../../assets/video/phone.mp4" autoplay muted loop playsinline #video2></video>
           <div class="phone__case">
             <div class="phone__case__buttons">
               <div class="phone__case__buttons__volume"></div>
@@ -83,24 +83,24 @@
       </div>
     </ion-col>
 
-    <ion-col size="12" sizeMd="3">
-      <div class="contact-border border-top-left" [class.contact-on]="steps[4]"></div>
-      <div class="col-container" *ngIf="steps[4]">
+    <ion-col size="12" sizeMd="3" #stepBlock>
+      <div class="contact-border border-top-left" [class.contact-on]="steps[4] && revealSteps[4]"></div>
+      <div class="col-container" *ngIf="steps[4] && revealSteps[4]">
         <h3 @inOutOpac>Contact</h3>
-        <div class="custom-list flex-column ion-justify-content-center" [@inOutOpac]="{ value: '', params: { delay: 200}}">
-          <ion-item lines="none" href="tel:0636671813" button>
+        <div class="custom-list flex-column ion-justify-content-center">
+          <ion-item lines="none" href="tel:0636671813" button [@inOutOpac]="{ value: '', params: { delay: 400}}">
             <ion-icon name="call-sharp"></ion-icon>
             <p>06.36.67.18.13</p>
           </ion-item>
-          <ion-item lines="none" href="mailto:clementcarcenac@gmail.com" button>
+          <ion-item lines="none" href="mailto:clementcarcenac@gmail.com" button [@inOutOpac]="{ value: '', params: { delay: 600}}">
             <ion-icon name="mail"></ion-icon>
             <p>{{'clementcarcenac@gmail.com'}}</p>
           </ion-item>
-          <ion-item lines="none" href="https://github.com/ClementCar" target="_blank" rel="noopener noreferrer" button>
+          <ion-item lines="none" href="https://github.com/ClementCar" target="_blank" rel="noopener noreferrer" button [@inOutOpac]="{ value: '', params: { delay: 800}}">
             <ion-icon name="logo-github"></ion-icon>
             <p>ClementCar</p>
           </ion-item>
-          <ion-item lines="none" href="https://www.linkedin.com/in/clement-carcenac-4a61a11b0" target="_blank" rel="noopener noreferrer" button>
+          <ion-item lines="none" href="https://www.linkedin.com/in/clement-carcenac-4a61a11b0" target="_blank" rel="noopener noreferrer" button [@inOutOpac]="{ value: '', params: { delay: 1000}}">
             <ion-icon name="logo-linkedin"></ion-icon>
             <p>Clément Carcenac</p>
           </ion-item>

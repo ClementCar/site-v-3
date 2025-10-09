@@ -25,7 +25,7 @@
   </ng-container>
 
   <ng-container *ngIf="simpleView">
-    <div *ngIf="!loader && enter" class="w-100 h-100">
+    <div *ngIf="!loader && enter" class="w-100 h-100" @inOutOpac>
       <app-waiting-view class="w-100 h-100"></app-waiting-view>
     </div>
   </ng-container>

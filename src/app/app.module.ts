@@ -10,9 +10,10 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WaitingViewComponent } from './components/waiting-view/waiting-view.component';
+import { ScrollRevealDirective } from './directives/scroll-reveal.directive';
 
 @NgModule({
-  declarations: [AppComponent, WaitingViewComponent, ],
+  declarations: [AppComponent, WaitingViewComponent, ScrollRevealDirective],
   imports: [BrowserModule, 
     IonicModule.forRoot({
       platform: {
@@ -27,5 +28,6 @@ import { WaitingViewComponent } from './components/waiting-view/waiting-view.com
     { provide: LOCALE_ID, useValue: 'fr-FR'}
   ],
   bootstrap: [AppComponent],
+  exports: [ ScrollRevealDirective]
 })
 export class AppModule {}

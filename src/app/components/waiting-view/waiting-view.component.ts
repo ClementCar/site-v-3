@@ -28,24 +28,6 @@ export class WaitingViewComponent  implements OnInit {
     this.setSteps(true);
   }
 
-  // ctrlVideo(){
-  //   setTimeout(() => {
-  //     const v1 = this.video1.nativeElement as HTMLVideoElement;
-  //     const v2 = this.video2.nativeElement as HTMLVideoElement;
-  //     v1.addEventListener('canplay', () => {
-  //       console.log('video 1 can play')
-  //       v1.play()
-  //         .then(() => console.log('video 1 played'))
-  //         .catch(err => console.warn('video 1 error', err));
-  //     })
-  //     v2.addEventListener('canplay', () => {
-  //       v2.play()
-  //         .then(() => console.log('video 2 played'))
-  //         .catch(err => console.warn('video 2 error', err));
-  //     })
-  //   }, 1500)
-  // }
-
   ctrlVideo() {
     setTimeout(() => {
       if (!this.video1 || !this.video2) {

@@ -169,6 +169,55 @@ h3{
     }
 }
 
+// Desktop view
+.desktop{
+    position: relative;
+    width: 75%;
+    max-width: 530px;
+    height: max-content;
+    margin-bottom: 60px;
+    &__screen {
+        position: relative;
+        width: 94%;
+        height: 100%;
+        border-radius: 5px;
+        margin: 2%;
+        z-index: 2;
+    }
+    &__computer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; 
+        height: 100%;
+        background: linear-gradient(180deg, #5a5a5a, #3a3a3a);
+        border-radius: 10px 10px 0 0;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        &__stand {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(180deg, #c4c4c4, #a1a1a1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 10px 10px;
+        }
+        &__base {
+            position: absolute;
+            bottom: -62px;
+            left: 50%;
+            transform: translateX(-50%);
+            width:42px;
+            height: 40px;
+            background: #a1a1a1;
+            border-radius: 4px;
+            z-index: -1;
+        }
+    }
+}
+
 
 // Phone view
 .phone{

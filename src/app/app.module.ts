@@ -11,9 +11,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WaitingViewComponent } from './components/waiting-view/waiting-view.component';
 import { ScrollRevealDirective } from './directives/scroll-reveal.directive';
+import { ModalProject1Component } from './components/modal-project1/modal-project1.component';
+import { F1projectComponent } from './components/f1project/f1project.component';
 
 @NgModule({
-  declarations: [AppComponent, WaitingViewComponent, ScrollRevealDirective],
+  declarations: [AppComponent, WaitingViewComponent, ScrollRevealDirective, ModalProject1Component, F1projectComponent],
   imports: [BrowserModule, 
     IonicModule.forRoot({
       platform: {

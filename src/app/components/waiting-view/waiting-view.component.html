@@ -49,18 +49,32 @@
     <ion-col size="12" sizeMd="3" trackVisibility #stepBlock>
       <div class="project-col border-top-right" [class.project-col-on]="steps[2] && revealSteps[2]"></div>
       <div class="col-container flex-column-between" *ngIf="steps[2] && revealSteps[2]">
+        <h3 @inOutOpac>Projet en cours</h3>
+        <p [@inOutOpac]="{ value: '', params: { delay: 200 }}" >Projet f1</p>
+          <ion-button fill="clear" (click)="openModal(false)" color="dark" [@inOutOpac]="{ value: '', params: { delay: 400 }}">
+            Voir
+          </ion-button>
+      </div>
+    </ion-col>
+
+    <ion-col size="12" sizeMd="6" trackVisibility #stepBlock>
+      <div class="project-col" [class.project-col-on]="steps[3] && revealSteps[3]"></div>
+      <div class="col-container flex-column-between" *ngIf="steps[3] && revealSteps[3]">
         <h3 @inOutOpac>Dernière réalisation</h3>
         <p [@inOutOpac]="{ value: '', params: { delay: 200 }}" >Développement d'une application web dans le domaine immobilier.
           Conception et réalisation d'une application interactive, construite avec Angular et Ionic, 
           permettant aux utilisateurs d'obtenir une évaluation détaillée de leur environnement 
           (sécurité, qualité de vie, etc.) à partir d'une adresse.</p>
-          <ion-button fill="clear" href="https://app.goodplaceto.live/" color="dark" target="_blank" rel="noopener noreferrer" [@inOutOpac]="{ value: '', params: { delay: 400 }}">
+          <!-- <ion-button fill="clear" href="https://app.goodplaceto.live/" color="dark" target="_blank" rel="noopener noreferrer" [@inOutOpac]="{ value: '', params: { delay: 400 }}">
             Accéder à l'application
+          </ion-button> -->
+          <ion-button fill="clear" (click)="openModal(true)" id="open-modal" color="dark" [@inOutOpac]="{ value : '', params: {delay:400}}">
+            Voir
           </ion-button>
       </div>
     </ion-col>
 
-    <ion-col size="12" sizeMd="6" class="c-project" #stepBlock>
+    <!-- <ion-col size="12" sizeMd="6" class="c-project" #stepBlock>
       <div class="col-container flex" *ngIf="steps[3] && revealSteps[3]" @inOutOpac>
         <div class="desktop flex-center">
           <video class="desktop__screen" src="../../../assets/video/desktop.mp4" autoplay muted loop playsinline #video1></video>
@@ -81,7 +95,7 @@
           <div class="phone__camera"></div>
         </div>
       </div>
-    </ion-col>
+    </ion-col> -->
 
     <ion-col size="12" sizeMd="3" #stepBlock>
       <div class="contact-border border-top-left" [class.contact-on]="steps[4] && revealSteps[4]"></div>

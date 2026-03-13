@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, ElementRef, NgZone, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { IonCol, Platform } from '@ionic/angular';
+import { IonCol, ModalController, Platform } from '@ionic/angular';
 import { inFull, inHeight, inOutOpac, inWidth } from 'src/app/animations/animations';
 import { Skill, skills } from 'src/app/config/skills';
+import { ModalProject1Component } from '../modal-project1/modal-project1.component';
+import { F1projectComponent } from '../f1project/f1project.component';
 
 @Component({
   selector: 'app-waiting-view',
@@ -22,10 +24,18 @@ export class WaitingViewComponent  implements OnInit {
   revealSteps: boolean[] = [false, false, false, false, false];
   delays: number[] = [300, 1200, 3100, 4200, 5500];
 
-  constructor(public platform: Platform, private ngZone: NgZone) { }
+  constructor(public platform: Platform, private ngZone: NgZone, private modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.setSteps(true);
+  }
+
+  async openModal(last: boolean) {
+    const modal = await this.modalCtrl.create({
+      component: last ? ModalProject1Component : F1projectComponent
+    });
+
+    modal.present();
   }
 
   ctrlVideo() {

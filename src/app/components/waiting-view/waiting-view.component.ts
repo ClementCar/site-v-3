@@ -32,7 +32,8 @@ export class WaitingViewComponent  implements OnInit {
 
   async openModal(last: boolean) {
     const modal = await this.modalCtrl.create({
-      component: last ? ModalProject1Component : F1projectComponent
+      component: last ? ModalProject1Component : F1projectComponent,
+      cssClass: 'modal'
     });
 
     modal.present();
@@ -93,22 +94,24 @@ export class WaitingViewComponent  implements OnInit {
 
   setSteps(reveal: boolean){
     this.delays.forEach((delay, index) => {
-      setTimeout(() => {
-        this.steps[index] = reveal;
+      this.revealSteps[index] = true;
+      this.steps[index] = true;
+      // setTimeout(() => {
+      //   this.steps[index] = reveal;
 
-        const el = this.stepBlocks.get(index)!.nativeElement as HTMLElement;
+      //   const el = this.stepBlocks.get(index)!.nativeElement as HTMLElement;
 
-        if(!el) return;
+      //   if(!el) return;
 
-        if(this.isInView(el)){
-          this.revealSteps[index] = true;
-          if(index == 4){
-            this.ctrlVideo();
-          }
-        } else {
-          this.observe(el, index);
-        }
-      }, delay)
+      //   if(this.isInView(el)){
+      //     this.revealSteps[index] = true;
+      //     if(index == 4){
+      //       this.ctrlVideo();
+      //     }
+      //   } else {
+      //     this.observe(el, index);
+      //   }
+      // }, delay)
     })
   }
 

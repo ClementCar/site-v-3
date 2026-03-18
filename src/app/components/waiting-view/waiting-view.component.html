@@ -50,7 +50,8 @@
       <div class="project-col border-top-right" [class.project-col-on]="steps[2] && revealSteps[2]"></div>
       <div class="col-container flex-column-between" *ngIf="steps[2] && revealSteps[2]">
         <h3 @inOutOpac>Projet en cours</h3>
-        <p [@inOutOpac]="{ value: '', params: { delay: 200 }}" >Projet f1</p>
+        <p [@inOutOpac]="{ value: '', params: { delay: 200 }}" >Projet personnel conçu pour suivre les Grands Prix de Formule 1 en direct, 
+                    découvrir les équipes et pilotes, et visualiser les classements de manière interactive.</p>
           <ion-button fill="clear" (click)="openModal(false)" color="dark" [@inOutOpac]="{ value: '', params: { delay: 400 }}">
             Voir
           </ion-button>
@@ -65,37 +66,11 @@
           Conception et réalisation d'une application interactive, construite avec Angular et Ionic, 
           permettant aux utilisateurs d'obtenir une évaluation détaillée de leur environnement 
           (sécurité, qualité de vie, etc.) à partir d'une adresse.</p>
-          <!-- <ion-button fill="clear" href="https://app.goodplaceto.live/" color="dark" target="_blank" rel="noopener noreferrer" [@inOutOpac]="{ value: '', params: { delay: 400 }}">
-            Accéder à l'application
-          </ion-button> -->
           <ion-button fill="clear" (click)="openModal(true)" id="open-modal" color="dark" [@inOutOpac]="{ value : '', params: {delay:400}}">
             Voir
           </ion-button>
       </div>
     </ion-col>
-
-    <!-- <ion-col size="12" sizeMd="6" class="c-project" #stepBlock>
-      <div class="col-container flex" *ngIf="steps[3] && revealSteps[3]" @inOutOpac>
-        <div class="desktop flex-center">
-          <video class="desktop__screen" src="../../../assets/video/desktop.mp4" autoplay muted loop playsinline #video1></video>
-          <div class="desktop__computer">
-            <div class="desktop__computer__stand"></div>
-            <div class="desktop__computer__base"></div>
-          </div>
-        </div>
-
-        <div class="phone flex-center" *ngIf="steps[3] && revealSteps[3]" @inOutOpac>
-          <video class="phone__video" src="../../../assets/video/phone.mp4" autoplay muted loop playsinline #video2></video>
-          <div class="phone__case">
-            <div class="phone__case__buttons">
-              <div class="phone__case__buttons__volume"></div>
-              <div class="phone__case__buttons__power"></div>
-            </div>
-          </div>
-          <div class="phone__camera"></div>
-        </div>
-      </div>
-    </ion-col> -->
 
     <ion-col size="12" sizeMd="3" #stepBlock>
       <div class="contact-border border-top-left" [class.contact-on]="steps[4] && revealSteps[4]"></div>

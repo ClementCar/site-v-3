@@ -1,0 +1,274 @@
+.description{
+    display: block;
+    height: calc(50% - 36px);
+}
+
+.show{
+    display: block;
+    height: 50%;
+}
+
+.dot{
+    width: 7px;
+    margin-right: 5px;
+}
+
+ion-list{
+    background: transparent;
+    & ion-item{
+        --background: transparent;
+        --color: var(--ion-color-medium);
+        &::part(native){
+            min-height: fit-content;
+        }
+        & ion-label{
+            margin: 0;
+            font-size: 13px;
+        }
+    }
+}
+
+.border-left{
+    border-left: 1px solid var(--ion-color-medium);
+}
+
+
+// ============ PHONE AND DESKTOP DESIGN ============
+
+// Desktop view
+// .desktop{
+//     position: relative;
+//     width: 75%;
+//     max-width: 405px;
+//     height: max-content;
+//     margin-bottom: 60px;
+//     &__screen {
+//         position: relative;
+//         width: 94%;
+//         height: 100%;
+//         border-radius: 5px;
+//         margin: 2%;
+//         z-index: 2;
+//     }
+//     &__computer {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 100%; 
+//         height: 100%;
+//         background: linear-gradient(180deg, #5a5a5a, #3a3a3a);
+//         border-radius: 10px 10px 0 0;
+//         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+//         z-index: 1;
+//         &__stand {
+//             position: absolute;
+//             bottom: -30px;
+//             left: 0;
+//             width: 100%;
+//             height: 30px;
+//             background: linear-gradient(180deg, #c4c4c4, #a1a1a1);
+//             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+//             border-radius: 0 0 10px 10px;
+//         }
+//         &__base {
+//             position: absolute;
+//             bottom: -62px;
+//             left: 50%;
+//             transform: translateX(-50%);
+//             width:42px;
+//             height: 40px;
+//             background: #a1a1a1;
+//             border-radius: 4px;
+//             z-index: -1;
+//         }
+//     }
+// }
+
+
+// // Phone view
+// .phone{
+//     position: relative;
+//     display: flex;
+//     align-self: flex-end;
+//     width: 20%;
+//     max-width: 100px;
+//     transform: translateX(-35px);
+//     -webkit-transform: translateX(-35px);
+//     z-index: 3;
+//     &__video {
+//         position: relative;
+//         width: 94%;
+//         height: 88%;
+//         border-radius: 10px;
+//         margin: 3% 2%;
+//         z-index: 2;
+//     }
+//     &__case {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 100%; 
+//         height: 100%;
+//         background: linear-gradient(180deg, #5a5a5a, #3a3a3a);
+//         border-radius: 10px 10px 0 0;
+//         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+//         border-radius: 10px;
+//         z-index: 1;
+//         &__buttons{
+//             position: absolute;
+//             right: -2px;
+//             top: 0;
+//             height: 100%;
+//             padding-top: 40%;
+//             & div{
+//                 background: linear-gradient(180deg, #5a5a5a, #3a3a3a);
+
+//                 border-radius: 5px;
+//             }
+//             &__volume{
+//                 height: 15%;
+//                 width: 3px;
+//             }
+//             &__power{
+//                 height: 7%;
+//                 width: 3px;
+//                 margin-top: 16px;
+//             }
+//         }
+//     }
+//     &__camera {
+//         position: absolute;
+//         top: 2%;
+//         left: 50%;
+//         transform: translateX(-50%);
+//         -webkit-transform: translateX(-50%);
+//         width: 6px;
+//         height: 6px;
+//         background: black;
+//         border-radius: 50%;
+//         z-index: 2;
+//     }
+// }
+
+
+.col-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+// Desktop view
+.desktop {
+    position: relative;
+    width: clamp(160px, 60%, 405px);
+    display: flex;
+    flex-direction: column; // ← screen + stand + base empilés dans le flux
+    &__computer {
+        background: linear-gradient(180deg, #5a5a5a, #3a3a3a);
+        border-radius: 10px 10px 0 0;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column; // ← contient screen + stand + base
+        flex: 1;
+        width: 100%;
+        &__screen {
+            position: relative;
+            width: 94%;
+            border-radius: 5px;
+            margin: 2%;
+            z-index: 2;
+        }
+    }
+    &__stand {
+        // ← plus d'absolute, dans le flux
+        width: 100%;
+        height: 20px;
+        background: linear-gradient(180deg, #c4c4c4, #a1a1a1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 10px 10px;
+        flex-shrink: 0;
+    }
+    &__base {
+        // ← plus d'absolute, dans le flux, centré avec margin auto
+        width: clamp(28px, 6%, 42px);
+        height: clamp(20px, 3vw, 30px);
+        background: #a1a1a1;
+        border-radius: 4px;
+        margin: 0 auto; // ← centrage horizontal
+        flex-shrink: 0;
+        transform: translateY(-4px);
+        z-index: -1;
+    }
+}
+
+// Phone view
+.phone {
+    position: relative;
+    display: flex;
+    align-self: flex-end;
+    width: clamp(50px, 15%, 100px);
+    // height: 75%; // ← toujours 75% de la hauteur du conteneur flex
+    max-height: 75%;
+    transform: translateX(clamp(-20px, -5%, -10px));
+    -webkit-transform: translateX(clamp(-20px, -5%, -10px));
+    z-index: 3;
+
+    &__video {
+        position: relative;
+        width: 94%;
+        border-radius: 10px;
+        margin: 3% 2%;
+        z-index: 2;
+    }
+
+    &__case {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, #5a5a5a, #3a3a3a);
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+
+        &__buttons {
+        position: absolute;
+        right: -2px;
+        top: 0;
+        height: 100%;
+        padding-top: 40%;
+
+        & div {
+            background: linear-gradient(180deg, #5a5a5a, #3a3a3a);
+            border-radius: 5px;
+        }
+
+        &__volume {
+            height: 15%;
+            width: 3px;
+        }
+
+        &__power {
+            height: 7%;
+            width: 3px;
+            margin-top: 16px;
+        }
+        }
+    }
+
+    &__camera {
+        position: absolute;
+        top: 2%;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        width: 6px;
+        height: 6px;
+        background: black;
+        border-radius: 50%;
+        z-index: 2;
+    }
+}

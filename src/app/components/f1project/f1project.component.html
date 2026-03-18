@@ -1,3 +1,81 @@
-<p>
-  f1project works!
-</p>
+<ion-content class="ion-padding">
+
+    <ion-row class="ion-padding h-100">
+
+        <ion-col size="8" style="height: 100%;">
+
+            <ion-col class="description" size="12">
+                <ion-title>f1 Gallery</ion-title>
+                <p>
+                    F1 Gallery est un projet personnel conçu pour suivre les Grands Prix de Formule 1 en direct, 
+                    découvrir les équipes et pilotes, et visualiser les classements de manière interactive.
+
+                    L’objectif principal : montrer mes compétences en développement front-end, consommation d’APIs et design responsive tout en créant un projet fun et éducatif.
+                </p>
+            </ion-col>
+
+            <ion-col class="show half-col" size="12">
+                <div class="col-container flex">
+                    <div class="desktop flex-center">
+                    <video class="desktop__screen" src="assets/video/desktop.mp4" autoplay muted loop playsinline #video1></video>
+                    <div class="desktop__computer">
+                        <div class="desktop__computer__stand"></div>
+                        <div class="desktop__computer__base"></div>
+                    </div>
+                    </div>
+
+                    <div class="phone flex-center">
+                    <video class="phone__video" src="assets/video/phone.mp4" autoplay muted loop playsinline #video2></video>
+                    <div class="phone__case">
+                        <div class="phone__case__buttons">
+                        <div class="phone__case__buttons__volume"></div>
+                        <div class="phone__case__buttons__power"></div>
+                        </div>
+                    </div>
+                    <div class="phone__camera"></div>
+                    </div>
+                </div>
+            </ion-col>
+
+            <ion-button fill="clear" href="https://app.goodplaceto.live/" color="dark" target="_blank" rel="noopener noreferrer">Voir le site</ion-button>
+        </ion-col>
+        
+
+        <ion-col class="function border-left" style="height: 100%;" size="4">
+            <ion-list inset="true">
+                <ion-label>Frontend</ion-label>
+                <ion-item lines="none">
+                    <ion-icon class="dot" name="ellipse"></ion-icon>
+                    <ion-label>Angular</ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-icon class="dot" name="ellipse"></ion-icon>
+                    <ion-label>Ionic</ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-icon class="dot" name="ellipse"></ion-icon>
+                    <ion-label>TypeScript</ion-label>
+                </ion-item>
+            </ion-list>
+            <ion-list inset="true">
+                <ion-label>Backend & données</ion-label>
+                <ion-item lines="none">
+                    <ion-icon class="dot" name="ellipse"></ion-icon>
+                    <ion-label>API REST</ion-label>
+                </ion-item>
+            </ion-list>
+            <ion-list inset="true">
+                <ion-label>Communication</ion-label>
+                <ion-item lines="none">
+                    <ion-icon class="dot" name="ellipse"></ion-icon>
+                    <ion-label>Appels HTTP avec le HttpClient d’Angular</ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-icon class="dot" name="ellipse"></ion-icon>
+                    <ion-label>Consommation d’API REST</ion-label>
+                </ion-item>
+            </ion-list>
+        </ion-col>
+    </ion-row>
+    <ion-button class="btn-close" fill="clear" color="dark" (click)="close()"><ion-icon name="close-outline"></ion-icon></ion-button>
+</ion-content>

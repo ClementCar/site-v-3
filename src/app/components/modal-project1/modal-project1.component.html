@@ -2,7 +2,7 @@
 
     <ion-row class="ion-padding h-100">
 
-        <ion-col size="8" style="height: 100%;">
+        <ion-col class="col-des" size="12" sizeMd="8">
 
             <ion-col class="description" size="12">
                 <ion-title>Goodplaceto.live</ion-title>
@@ -14,7 +14,7 @@
                 </p>
             </ion-col>
 
-            <ion-col class="show half-col" size="12">
+            <ion-col class="show" size="12">
                 <div class="col-container flex">
                     <div class="desktop flex-center">
                         <div class="desktop__computer flex-center">
@@ -25,32 +25,27 @@
                     </div>
 
                     <div class="phone flex-center">
-                    <video class="phone__video" src="assets/video/phone.mp4" autoplay muted loop playsinline #video2></video>
-                    <div class="phone__case">
-                        <div class="phone__case__buttons">
-                        <div class="phone__case__buttons__volume"></div>
-                        <div class="phone__case__buttons__power"></div>
+                        <video class="phone__video" src="assets/video/phone.mp4" autoplay muted loop playsinline #video2></video>
+                        <div class="phone__case">
+                            <div class="phone__case__buttons">
+                            <div class="phone__case__buttons__volume"></div>
+                            <div class="phone__case__buttons__power"></div>
+                            </div>
                         </div>
+                        <div class="phone__camera"></div>
                     </div>
-                    <div class="phone__camera"></div>
-                    </div>
-                    <!-- <ion-icon name="desktop-outline"></ion-icon> -->
                 </div>
+
+                <ion-spinner name="crescent" color="dark"></ion-spinner>
             </ion-col>
 
             <ion-row class="w-100 flex-center">
                 <ion-button fill="clear" color="dark" (click)="openAlert()">Voir le site</ion-button>
-                <!-- <ion-button fill="clear" href="https://app.goodplaceto.live/" color="dark" target="_blank" rel="noopener noreferrer">Voir le site</ion-button> -->
-                <!-- <ion-note color="danger">
-                    <ion-icon name="warning-outline" color="danger"></ion-icon>
-                    Ce projet a été développé dans le cadre d’une expérience professionnelle précédente. 
-                    La maintenance du site n’étant plus assurée par mes soins, certaines fonctionnalités peuvent être obsolètes.
-                </ion-note> -->
             </ion-row>
         </ion-col>
         
 
-        <ion-col class="function border-left" style="height: 100%;" size="4">
+        <ion-col class="function border-left" size="12" sizeMd="4">
             <ion-list inset="true">
                 <ion-label>Frontend</ion-label>
                 <ion-item lines="none">

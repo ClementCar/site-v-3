@@ -26,7 +26,7 @@
       <div class="bottom border-bottom" *ngIf="steps[(platform.is('mobile') ? 1 : 2)]" @inWidth></div>
     </ion-col>
 
-    <ion-col size="12" sizeMd="3"  #stepBlock>
+    <ion-col class="col-skills" size="12" sizeMd="3" #stepBlock>
       <div class="col-container" id="skillsBlock" *ngIf="steps[1] && revealSteps[1]" @inOutOpac>
         <h3>Compétences</h3>
         <ul>
@@ -50,8 +50,7 @@
       <div class="project-col border-top-right" [class.project-col-on]="steps[2] && revealSteps[2]"></div>
       <div class="col-container flex-column-between" *ngIf="steps[2] && revealSteps[2]">
         <h3 @inOutOpac>Projet en cours</h3>
-        <p [@inOutOpac]="{ value: '', params: { delay: 200 }}" >Projet personnel conçu pour suivre les Grands Prix de Formule 1 en direct, 
-                    découvrir les équipes et pilotes, et visualiser les classements de manière interactive.</p>
+        <p [@inOutOpac]="{ value: '', params: { delay: 200 }}" >Projet personnel conçu autour de la Formule 1.</p>
           <ion-button fill="clear" (click)="openModal(false)" color="dark" [@inOutOpac]="{ value: '', params: { delay: 400 }}">
             Voir
           </ion-button>
@@ -62,10 +61,7 @@
       <div class="project-col" [class.project-col-on]="steps[3] && revealSteps[3]"></div>
       <div class="col-container flex-column-between" *ngIf="steps[3] && revealSteps[3]">
         <h3 @inOutOpac>Dernière réalisation</h3>
-        <p [@inOutOpac]="{ value: '', params: { delay: 200 }}" >Développement d'une application web dans le domaine immobilier.
-          Conception et réalisation d'une application interactive, construite avec Angular et Ionic, 
-          permettant aux utilisateurs d'obtenir une évaluation détaillée de leur environnement 
-          (sécurité, qualité de vie, etc.) à partir d'une adresse.</p>
+        <p [@inOutOpac]="{ value: '', params: { delay: 200 }}" >Développement d'une application web dans le domaine immobilier.</p>
           <ion-button fill="clear" (click)="openModal(true)" id="open-modal" color="dark" [@inOutOpac]="{ value : '', params: {delay:400}}">
             Voir
           </ion-button>

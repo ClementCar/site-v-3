@@ -1,11 +1,20 @@
+@use '/src/style/mixin' as mixin;
+
+ion-content{
+    --background: url("https://www.transparenttextures.com/patterns/black-linen.png"), radial-gradient(circle at top left, hsl(0, 0%, 11%), hsl(0, 0%, 9%), hsl(0, 0%, 3%));
+}
+
 .description{
     display: block;
-    height: calc(50% - 36px);
+    height: auto;
+    @include mixin.media-desktop{
+        height: calc(50% - 36px);
+    }
 }
 
 .show{
     display: block;
-    height: 50%;
+    // height: 50%;
 }
 
 .dot{
@@ -13,8 +22,32 @@
     margin-right: 5px;
 }
 
+// .col-des{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-around;
+//     height: 100%;
+// }
+
+.function{
+    display: flex;
+    // justify-content: center;
+    height: auto;
+    flex-wrap: wrap;
+    @include mixin.media-desktop{
+        flex-direction: column;
+        // justify-content: flex-start;
+        height: 100%;
+    }
+}
+
 ion-list{
+    width: auto;
+    margin-top: 0 !important;
     background: transparent;
+    @include mixin.media-desktop{
+        width: 100%;
+    }
     & ion-item{
         --background: transparent;
         --color: var(--ion-color-medium);
@@ -29,127 +62,16 @@ ion-list{
 }
 
 .border-left{
-    border-left: 1px solid var(--ion-color-medium);
+    border-top: 1px solid var(--ion-color-medium);
+    
+    @include mixin.media-desktop{
+        border-top: none;
+        border-left: 1px solid var(--ion-color-medium);
+    }
 }
 
 
 // ============ PHONE AND DESKTOP DESIGN ============
-
-// Desktop view
-// .desktop{
-//     position: relative;
-//     width: 75%;
-//     max-width: 405px;
-//     height: max-content;
-//     margin-bottom: 60px;
-//     &__screen {
-//         position: relative;
-//         width: 94%;
-//         height: 100%;
-//         border-radius: 5px;
-//         margin: 2%;
-//         z-index: 2;
-//     }
-//     &__computer {
-//         position: absolute;
-//         top: 0;
-//         left: 0;
-//         width: 100%; 
-//         height: 100%;
-//         background: linear-gradient(180deg, #5a5a5a, #3a3a3a);
-//         border-radius: 10px 10px 0 0;
-//         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-//         z-index: 1;
-//         &__stand {
-//             position: absolute;
-//             bottom: -30px;
-//             left: 0;
-//             width: 100%;
-//             height: 30px;
-//             background: linear-gradient(180deg, #c4c4c4, #a1a1a1);
-//             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-//             border-radius: 0 0 10px 10px;
-//         }
-//         &__base {
-//             position: absolute;
-//             bottom: -62px;
-//             left: 50%;
-//             transform: translateX(-50%);
-//             width:42px;
-//             height: 40px;
-//             background: #a1a1a1;
-//             border-radius: 4px;
-//             z-index: -1;
-//         }
-//     }
-// }
-
-
-// // Phone view
-// .phone{
-//     position: relative;
-//     display: flex;
-//     align-self: flex-end;
-//     width: 20%;
-//     max-width: 100px;
-//     transform: translateX(-35px);
-//     -webkit-transform: translateX(-35px);
-//     z-index: 3;
-//     &__video {
-//         position: relative;
-//         width: 94%;
-//         height: 88%;
-//         border-radius: 10px;
-//         margin: 3% 2%;
-//         z-index: 2;
-//     }
-//     &__case {
-//         position: absolute;
-//         top: 0;
-//         left: 0;
-//         width: 100%; 
-//         height: 100%;
-//         background: linear-gradient(180deg, #5a5a5a, #3a3a3a);
-//         border-radius: 10px 10px 0 0;
-//         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-//         border-radius: 10px;
-//         z-index: 1;
-//         &__buttons{
-//             position: absolute;
-//             right: -2px;
-//             top: 0;
-//             height: 100%;
-//             padding-top: 40%;
-//             & div{
-//                 background: linear-gradient(180deg, #5a5a5a, #3a3a3a);
-
-//                 border-radius: 5px;
-//             }
-//             &__volume{
-//                 height: 15%;
-//                 width: 3px;
-//             }
-//             &__power{
-//                 height: 7%;
-//                 width: 3px;
-//                 margin-top: 16px;
-//             }
-//         }
-//     }
-//     &__camera {
-//         position: absolute;
-//         top: 2%;
-//         left: 50%;
-//         transform: translateX(-50%);
-//         -webkit-transform: translateX(-50%);
-//         width: 6px;
-//         height: 6px;
-//         background: black;
-//         border-radius: 50%;
-//         z-index: 2;
-//     }
-// }
-
 
 .col-container {
     width: 100%;
@@ -157,6 +79,24 @@ ion-list{
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    opacity: 1;
+    transition: all .5s ease .5s;
+    @starting-style{
+        opacity: 0;
+    }
+}
+
+ion-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .5s ease .5s;
+    @starting-style{
+        opacity: 1;
+    }
+
 }
 
 // Desktop view

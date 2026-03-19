@@ -2,10 +2,10 @@
 
     <ion-row class="ion-padding h-100">
 
-        <ion-col size="8" style="height: 100%;">
+        <ion-col class="col-des" size="12" sizeMd="8">
 
             <ion-col class="description" size="12">
-                <ion-title>f1 Gallery</ion-title>
+                <ion-title>F1 Gallery</ion-title>
                 <p>
                     F1 Gallery est un projet personnel conçu pour suivre les Grands Prix de Formule 1 en direct, 
                     découvrir les équipes et pilotes, et visualiser les classements de manière interactive.
@@ -14,34 +14,39 @@
                 </p>
             </ion-col>
 
-            <ion-col class="show half-col" size="12">
+            <ion-col class="show" size="12">
                 <div class="col-container flex">
                     <div class="desktop flex-center">
-                    <video class="desktop__screen" src="assets/video/desktop.mp4" autoplay muted loop playsinline #video1></video>
-                    <div class="desktop__computer">
-                        <div class="desktop__computer__stand"></div>
-                        <div class="desktop__computer__base"></div>
-                    </div>
+                        <div class="desktop__computer flex-center">
+                            <img class="desktop__computer__screen" src="assets/images/f1desktop.png" autoplay muted loop playsinline #video1>
+                        </div>
+                        <div class="desktop__stand"></div>
+                        <div class="desktop__base"></div>
                     </div>
 
                     <div class="phone flex-center">
-                    <video class="phone__video" src="assets/video/phone.mp4" autoplay muted loop playsinline #video2></video>
-                    <div class="phone__case">
-                        <div class="phone__case__buttons">
-                        <div class="phone__case__buttons__volume"></div>
-                        <div class="phone__case__buttons__power"></div>
+                        <img class="phone__video" src="assets/images/f1mobile.png" autoplay muted loop playsinline #video2>
+                        <div class="phone__case">
+                            <div class="phone__case__buttons">
+                            <div class="phone__case__buttons__volume"></div>
+                            <div class="phone__case__buttons__power"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="phone__camera"></div>
+                        <div class="phone__camera"></div>
                     </div>
                 </div>
+
+                <ion-spinner name="crescent" color="dark"></ion-spinner>
             </ion-col>
 
-            <ion-button fill="clear" href="https://app.goodplaceto.live/" color="dark" target="_blank" rel="noopener noreferrer">Voir le site</ion-button>
+            <ion-row class="w-100 flex-center">
+                <ion-button fill="clear" color="dark" href="https://github.com/ClementCar/f1-gallery" target="_blank">Accéder au code</ion-button>
+                <ion-button fill="clear" color="dark" href="https://f1-gallery.vercel.app/home" target="_blank">Voir le site</ion-button>
+            </ion-row>
         </ion-col>
         
 
-        <ion-col class="function border-left" style="height: 100%;" size="4">
+        <ion-col class="function border-left" size="12" sizeMd="4">
             <ion-list inset="true">
                 <ion-label>Frontend</ion-label>
                 <ion-item lines="none">
@@ -50,29 +55,43 @@
                 </ion-item>
                 <ion-item lines="none">
                     <ion-icon class="dot" name="ellipse"></ion-icon>
-                    <ion-label>Ionic</ion-label>
+                    <ion-label>Ionic Framework</ion-label>
                 </ion-item>
                 <ion-item lines="none">
                     <ion-icon class="dot" name="ellipse"></ion-icon>
                     <ion-label>TypeScript</ion-label>
                 </ion-item>
-            </ion-list>
-            <ion-list inset="true">
-                <ion-label>Backend & données</ion-label>
                 <ion-item lines="none">
                     <ion-icon class="dot" name="ellipse"></ion-icon>
-                    <ion-label>API REST</ion-label>
+                    <ion-label>Responsive design</ion-label>
                 </ion-item>
             </ion-list>
+
+            <ion-list inset="true">
+                <ion-label>Données & APIs</ion-label>
+                <ion-item lines="none">
+                    <ion-icon class="dot" name="ellipse"></ion-icon>
+                    <ion-label>Consommation d’API REST F1</ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-icon class="dot" name="ellipse"></ion-icon>
+                    <ion-label>Récupération des données pilotes, équipes et classements</ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-icon class="dot" name="ellipse"></ion-icon>
+                    <ion-label>Données des Grands Prix et résultats</ion-label>
+                </ion-item>
+            </ion-list>
+
             <ion-list inset="true">
                 <ion-label>Communication</ion-label>
                 <ion-item lines="none">
                     <ion-icon class="dot" name="ellipse"></ion-icon>
-                    <ion-label>Appels HTTP avec le HttpClient d’Angular</ion-label>
+                    <ion-label>Appels HTTP avec HttpClient (Angular)</ion-label>
                 </ion-item>
                 <ion-item lines="none">
                     <ion-icon class="dot" name="ellipse"></ion-icon>
-                    <ion-label>Consommation d’API REST</ion-label>
+                    <ion-label>Gestion des réponses API (Observables)</ion-label>
                 </ion-item>
             </ion-list>
         </ion-col>

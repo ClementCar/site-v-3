@@ -15,8 +15,6 @@ import { F1projectComponent } from '../f1project/f1project.component';
 
 export class WaitingViewComponent  implements OnInit {
   @ViewChildren('stepBlock', { read: ElementRef }) stepBlocks!: QueryList<ElementRef>;
-  @ViewChild('video1') video1!: ElementRef<HTMLVideoElement>;
-  @ViewChild('video2') video2!: ElementRef<HTMLVideoElement>;
   
   allSkills: Skill[] = skills;
 
@@ -39,79 +37,24 @@ export class WaitingViewComponent  implements OnInit {
     modal.present();
   }
 
-  ctrlVideo() {
-    setTimeout(() => {
-      if (!this.video1 || !this.video2) {
-        console.warn('video refs not ready');
-        return;
-      }
-      const v1 = this.video1.nativeElement as HTMLVideoElement;
-      const v2 = this.video2.nativeElement as HTMLVideoElement;
-
-      v1.muted = true;
-      v2.muted = true;
-      v1.setAttribute('playsinline', '');
-      v2.setAttribute('playsinline', '');
-
-      // écouteurs pour debug
-      v1.addEventListener('loadedmetadata', () => console.log('v1 loadedmetadata'));
-      v1.addEventListener('loadeddata', () => console.log('v1 loadeddata'));
-      v1.addEventListener('canplay', () => {
-        console.log('v1 canplay event');
-        v1.play().then(() => console.log('v1 played in canplay'))
-          .catch(err => {
-            console.warn('v1 play error in canplay:', err);
-            // retenter
-            setTimeout(() => {
-              v1.play().then(() => console.log('v1 played retry')).catch(err2 => console.warn('v1 retry error', err2));
-            }, 200);
-          });
-      });
-
-      v1.play().then(() => console.log('v1 played immediate')).catch(err => {
-        console.warn('v1 immediate play failed', err);
-      });
-
-      v2.addEventListener('loadedmetadata', () => console.log('v2 loadedmetadata'));
-      v2.addEventListener('loadeddata', () => console.log('v2 loadeddata'));
-      v2.addEventListener('canplay', () => {
-        console.log('v2 canplay event');
-        v2.play().then(() => console.log('v2 played in canplay'))
-          .catch(err => {
-            console.warn('v2 play error in canplay:', err);
-            setTimeout(() => {
-              v2.play().then(() => console.log('v2 played retry')).catch(err2 => console.warn('v2 retry error', err2));
-            }, 200);
-          });
-      });
-      v2.play().then(() => console.log('v2 played immediate')).catch(err => {
-        console.warn('v2 immediate play failed', err);
-      });
-
-    }, 1500);
-  }
-
 
   setSteps(reveal: boolean){
     this.delays.forEach((delay, index) => {
-      this.revealSteps[index] = true;
-      this.steps[index] = true;
-      // setTimeout(() => {
-      //   this.steps[index] = reveal;
+      // this.revealSteps[index] = true;
+      // this.steps[index] = true;
+      setTimeout(() => {
+        this.steps[index] = reveal;
 
-      //   const el = this.stepBlocks.get(index)!.nativeElement as HTMLElement;
+        const el = this.stepBlocks.get(index)!.nativeElement as HTMLElement;
 
-      //   if(!el) return;
+        if(!el) return;
 
-      //   if(this.isInView(el)){
-      //     this.revealSteps[index] = true;
-      //     if(index == 4){
-      //       this.ctrlVideo();
-      //     }
-      //   } else {
-      //     this.observe(el, index);
-      //   }
-      // }, delay)
+        if(this.isInView(el)){
+          this.revealSteps[index] = true;
+        } else {
+          this.observe(el, index);
+        }
+      }, delay)
     })
   }
 
@@ -125,9 +68,6 @@ export class WaitingViewComponent  implements OnInit {
         if(entry.isIntersecting){
           this.ngZone.run(() => {
             this.revealSteps[index] = true;
-            if(index == 3){
-              this.ctrlVideo();
-            }
           });
           observer.disconnect();
         }

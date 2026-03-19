@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ModalController, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-f1project',
@@ -7,11 +7,22 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./f1project.component.scss'],
   standalone: false
 })
-export class F1projectComponent  implements OnInit {
+export class F1projectComponent  implements OnInit, OnDestroy {
 
-  constructor(private modalCtrl: ModalController) { }
+  constructor(private modalCtrl: ModalController, private platform: Platform) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    history.pushState(null, location.href);
+    window.addEventListener('popstate', this.close.bind(this));
+
+    this.platform.backButton.subscribeWithPriority(10, () => {
+      this.close();
+    })
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('popstate', this.close.bind(this));
+  }
 
   close(){
     this.modalCtrl.dismiss();

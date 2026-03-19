@@ -69,7 +69,8 @@
 body{
     color: var(--ion-color-white) !important;
     // background: radial-gradient(circle at center, hsla(0,0%,20%,1), hsla(0,0%,10%,1), hsla(0,0%,0%,1)) !important;
-    background: url("https://www.transparenttextures.com/patterns/black-linen.png"), radial-gradient(circle at top left, hsla(0,0%,20%,1), hsla(0,0%,10%,1), hsla(0,0%,0%,1));
+    // background: url("https://www.transparenttextures.com/patterns/black-linen.png"), radial-gradient(circle at top left, hsla(0,0%,20%,1), hsla(0,0%,10%,1), hsla(0,0%,0%,1));
+    background: url("https://www.transparenttextures.com/patterns/black-linen.png"), radial-gradient(circle at top left, hsl(0, 0%, 11%), hsl(0, 0%, 9%), hsl(0, 0%, 3%));
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -79,20 +80,6 @@ body{
 body.bg-animated{
     animation: bg-light .6s ease forwards !important;
 }
-
-// body {
-//   color: var(--ion-color-white) !important;
-//   background: radial-gradient(circle at top left, hsla(0,0%,20%,1), hsla(0,0%,10%,1), hsla(0,0%,0%,1)) !important;
-//   background-repeat: no-repeat;
-//   background-size: 150% 150% !important;
-//   background-position: top left;
-//   font-family: "Raleway", sans-serif;
-//   transition: background-position 1s ease !important;
-// }
-
-// body.bg-animated {
-//   background-position: bottom right !important;
-// }
 
 p{
     font-size: 15px;
@@ -107,4 +94,18 @@ h1{
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
+}
+
+.modal{
+    --width: 100%;
+    --height: 100%;
+    --border-radius: 0;
+    @include mixin.media-desktop{
+        --width: 80%;
+        --height: 80%;
+        --border-radius: 10px;
+    }
+    & .title-default{
+        padding: 0;
+    }
 }

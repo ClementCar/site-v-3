@@ -46,6 +46,7 @@
 .danger-alert{
     & .alert-wrapper{
         border-radius: 10px;
+        background: url("https://www.transparenttextures.com/patterns/black-linen.png"), radial-gradient(circle at top left, hsl(0, 0%, 11%), hsl(0, 0%, 9%), hsl(0, 0%, 3%)) !important;
     }
     & .alert-title{
         text-align: center;
